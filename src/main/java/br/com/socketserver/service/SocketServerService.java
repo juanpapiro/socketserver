@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class SocketServerService extends Thread {
 	
+	
 	public void socketServerInit() throws IOException {
 //		ServerSocket socketServer = SSLServerSocketFactory.getDefault().createServerSocket(9000);
 		
