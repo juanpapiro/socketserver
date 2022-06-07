@@ -38,7 +38,20 @@ https://stackoverflow.com/questions/42370904/javax-net-ssl-sslhandshakeexception
 
 https://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html
 
+https://www.ibm.com/docs/pt-br/host-on-demand/12.0?topic=SSS9FA_12.0.0/com.ibm.hod.doc/tutorials/ssh/ssh-pk03.html
+
+https://www.certisign.com.br/duvidas-suporte/certificado-servidor/gerar-csr/keytool
+
+https://codigofonte.org/converter-uma-cadeia-de-certificados-e-uma-chave-em-um-java-keystore-para-ssl-em-puma-java/
+
+https://marceloprogramador.com/2015/07/28/guia-certificados-java/
+
+https://www.certisign.com.br/duvidas-suporte/certificado-servidor/gerar-csr
+
+https://www.certisign.com.br/duvidas-suporte/certificado-servidor/gerar-csr/keytool
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 TUTORIAIS
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
