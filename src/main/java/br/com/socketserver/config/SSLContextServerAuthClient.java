@@ -4,6 +4,7 @@ import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.security.KeyStore;
+import java.security.SecureRandom;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
@@ -20,30 +21,29 @@ import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 @Configuration
-public class SSLContextConfig {
+public class SSLContextServerAuthClient {
 	
 	public static final String KEYSTORE = "/keystoreserver";
 	public static final String STOREPASS = "123456";
 	public static final String CLIENTCERT = "/certclient.cer";
 	
 	@Bean
-	@Qualifier("sslContextServer")
+	@Qualifier("sslContextClientAuthClient")
 	public SSLContext sslContextConfigJKS() {
 		
 		try {
 			KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
 			ks.load(new FileInputStream(getClass().getResource(KEYSTORE).getPath()), null);
-//			ks.setCertificateEntry("clientcert", generateCertificate());
-						
+			ks.setCertificateEntry("clientcert", generateCertificate());
+			
 			KeyManagerFactory kmf = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
 			kmf.init(ks, STOREPASS.toCharArray());
 			
-			TrustManagerFactory tmf = TrustManagerFactory.getInstance("SunX509");
+			TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
 			tmf.init(ks);
 
 			SSLContext contextoSSL = SSLContext.getInstance("TLS");
-//			contextoSSL.init(kmf.getKeyManagers(), tmf.getTrustManagers(), null);		
-			contextoSSL.init(kmf.getKeyManagers(), null, null);		
+			contextoSSL.init(kmf.getKeyManagers(), tmf.getTrustManagers(), new SecureRandom());		
 			
 			return contextoSSL;
 		} catch (Exception e) {

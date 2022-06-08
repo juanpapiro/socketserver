@@ -122,3 +122,11 @@ keytool -export -storepass 123456 -file certclient.cer -keystore clientkeystore
 keytool -import -v -trustcacerts -file certclient.cer -keypass 123456 -storepass 123456 -keystore servertruststore
 
 keytool -genkey -keypass <senha> -storepass <senha> -keystore <nome_keystore> //gerar com java 8 no caminho do path em variáveis de ambiente
+
+**** GERA CHAVE PÚBLICA E PRIVADA
+
+keytool -genkey -storepass 456789 -keypass 456789 -alias serverkeystorenew -keyalg RSA -validity 1 -keysize 2048 -keystore serverkeystorenew -dname "CN=SERVERNEW, OU=New Server, O=Server S.A., L=Sao Apulo, S=Sao Paulo, C=BR"
+
+**** EXPORTA CERTIFICADO
+
+keytool -export -storepass 456789 -file certservernew.cer -keystore serverkeystorenew -alias serverkeystorenew

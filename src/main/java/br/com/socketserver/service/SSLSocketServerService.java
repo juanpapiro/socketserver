@@ -10,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 @Service
 public class SSLSocketServerService {
 	
@@ -37,7 +40,7 @@ public class SSLSocketServerService {
 				while(true) new SocketServerThread(sslServerSocket.accept()).start();
 				
 			} catch (IOException e) {
-				System.out.println(e);
+				log.error(e);
 			}
 		});
 		

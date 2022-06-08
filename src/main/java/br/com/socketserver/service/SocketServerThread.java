@@ -8,6 +8,9 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 public class SocketServerThread extends Thread {
 	
 	private Socket socket;
@@ -30,7 +33,7 @@ public class SocketServerThread extends Thread {
 			writer.println("Mensagem recebida: ".concat(messageIn != null ? messageIn : ""));			
 		
 		} catch(IOException e) {
-			e.printStackTrace();
+			log.error(e);
 		}
 
 	}
@@ -41,7 +44,7 @@ public class SocketServerThread extends Thread {
 			BufferedReader br = new BufferedReader(reader);
 			return br.readLine();
 		} catch (IOException e) {
-			e.printStackTrace();
+			log.error(e);
 			return null;
 		}
 	}
@@ -56,7 +59,7 @@ public class SocketServerThread extends Thread {
 			}
 			return baos.toString("UTF-8");
 		} catch (IOException e) {
-			e.printStackTrace();
+			log.error(e);
 			return null;
 		}
 	}
