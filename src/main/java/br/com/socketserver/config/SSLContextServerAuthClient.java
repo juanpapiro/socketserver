@@ -29,7 +29,7 @@ public class SSLContextServerAuthClient {
 	
 	@Bean
 	@Qualifier("sslContextClientAuthClient")
-	public SSLContext sslContextConfigJKS() {
+	public SSLContext sslContextConfigAuthClientJKS() {
 		
 		try {
 			KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());

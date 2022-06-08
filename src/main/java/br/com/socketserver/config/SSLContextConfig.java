@@ -1,12 +1,7 @@
 package br.com.socketserver.config;
 
-import java.io.BufferedInputStream;
 import java.io.FileInputStream;
-import java.io.InputStream;
 import java.security.KeyStore;
-import java.security.cert.Certificate;
-import java.security.cert.CertificateFactory;
-import java.security.cert.X509Certificate;
 
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
@@ -33,7 +28,6 @@ public class SSLContextConfig {
 		try {
 			KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
 			ks.load(new FileInputStream(getClass().getResource(KEYSTORE).getPath()), null);
-//			ks.setCertificateEntry("clientcert", generateCertificate());
 						
 			KeyManagerFactory kmf = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
 			kmf.init(ks, STOREPASS.toCharArray());
@@ -42,7 +36,6 @@ public class SSLContextConfig {
 			tmf.init(ks);
 
 			SSLContext contextoSSL = SSLContext.getInstance("TLS");
-//			contextoSSL.init(kmf.getKeyManagers(), tmf.getTrustManagers(), null);		
 			contextoSSL.init(kmf.getKeyManagers(), null, null);		
 			
 			return contextoSSL;
@@ -52,20 +45,5 @@ public class SSLContextConfig {
 		}
 	}
 	
-	
-	public Certificate generateCertificate() {
-		try (InputStream caInput = new BufferedInputStream(
-				new FileInputStream(getClass().getResource(CLIENTCERT).getPath()))){
-			CertificateFactory cf = CertificateFactory.getInstance("X.509");
-			Certificate ca = cf.generateCertificate(caInput);
-			X509Certificate x509 = (X509Certificate) ca;
-			log.info("SubjectDN: {} - Algoritmo: {} - Tipo: {}", 
-					x509.getSubjectDN(), x509.getSigAlgName(), x509.getType());
-			return ca;
-		} catch(Exception e) {
-			log.error(e);
-		}
-		return null;
-	}
 
 }
