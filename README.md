@@ -50,6 +50,10 @@ https://www.certisign.com.br/duvidas-suporte/certificado-servidor/gerar-csr
 
 https://www.certisign.com.br/duvidas-suporte/certificado-servidor/gerar-csr/keytool
 
+https://techdocs.broadcom.com/us/en/ca-mainframe-software/database-management/ca-datacom-tools/15-0/working-with-ca-datacom-server-15-0/configuring-ca-datacom-server/implement-and-configure-the-jdbc-driver/configure-secure-sockets-on-client.html
+
+
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 TUTORIAIS
