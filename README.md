@@ -8,6 +8,8 @@ https://cic.unb.br/~pedro/trabs/ssl_jsse.html#apendiceA
 
 https://www.baeldung.com/java-ssl-handshake-failures
 
+https://docs.oracle.com/javase/10/security/sample-code-illustrating-secure-socket-connection-client-and-server.htm#JSSEC-GUID-3561ED02-174C-4E65-8BB1-5995E9B7282C
+
 https://docs.oracle.com/javase/10/security/java-secure-socket-extension-jsse-reference-guide.htm#JSSEC-GUID-3D26386B-BC7A-41BB-AC70-80E6CD147D6F
 
 https://docs.oracle.com/javase/10/security/java-secure-socket-extension-jsse-reference-guide.htm#JSSEC-GUID-0ACD9274-607C-49BE-AED9-BEE2B4F2BEF2
